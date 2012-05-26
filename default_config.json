@@ -1,0 +1,11 @@
+{
+  "mongoDatabase":null,
+  "mongoUser": null,
+  "mongoPassword": null,
+  "mongoReadOnlyUser": null,
+  "mongoReadOnlyPassword": null,
+  "mongoHostname":"localhost",
+  "mongoPort":27017,
+  "senderscoreUser":null,
+  "senderscorePassword":null
+}
