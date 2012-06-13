@@ -1,0 +1,20 @@
+h1= title
+
+script(type="text/javascript")
+  var reports = !{JSON.stringify(domainReports)};
+
+table
+  thead
+    tr
+      td Date
+      td Score
+      td Volume
+      td Total IPs
+  tbody
+    for report in domainReports
+      tr
+        td
+          a(href='/domain/#{title}/#{new Date(report.processDate).toJSON()}') #{new Date(report.processDate).toLocaleDateString()}
+        td #{Math.round(report.senderscore)}
+        td #{report.senderVolume}
+        td #{report.ip_count}

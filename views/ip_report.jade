@@ -1,0 +1,13 @@
+h1= title
+
+table
+  thead
+    tr
+      td Metric
+      td Value
+  tbody
+    for val, key in ipData
+      if (key !== 'domains' || key !== 'ip_auth' || key !== ss_trend)
+        tr
+          td #{key}
+          td #{val}

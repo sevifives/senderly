@@ -41,8 +41,8 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.get('/scores/:start?/:end?',routes.getScores);
-app.get('/:asset/:id', routes.forAsset);
-app.get('/:assets', routes.forAssets);
+app.get('/domain/:domain/:date?', routes.domainInfo);
+app.get('/ip/:ip/:date?', routes.ipInfo);
 
 Senderly.startProcess();
 

@@ -1,0 +1,35 @@
+h1= title
+
+table
+  thead
+    tr
+      td Metric
+      td Value
+  tbody
+    for val, key in domainData
+      if (key !== 'ips')
+        tr
+          td #{key}
+          td
+            if (key !== 'related_domains')
+              #{val}
+            else
+              for related in val
+                a(href='/domain/#{related}') #{related}
+
+h2 Ips
+table
+  thead
+    tr
+      td IP
+      td Score
+      td Volume
+      td hostname
+  tbody
+    for ip in domainData.ips
+      tr
+        td
+          a(href='/ip/#{ip.ip}') #{ip.ip}
+        td #{ip.senderscore}
+        td #{ip.senderVolume}
+        td #{ip.hostname}

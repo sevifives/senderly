@@ -1,0 +1,30 @@
+h1= title
+
+script(type="text/javascript")
+  var reports = !{JSON.stringify(ipReports)};
+
+table
+  thead
+    tr
+      td Date
+      td Score
+      td Volume
+      td Blacklist_impact
+      td Complaint_rate_impact
+      td Unknown_rate_impact
+      td Rejected_rate_impact
+      td Filtered_rate_impact
+      td Infrastructure_impact
+  tbody
+    for report in ipReports
+      tr
+        td
+          a(href='/ip/#{title}/#{new Date(report.processDate).toJSON()}') #{new Date(report.processDate).toLocaleDateString()}
+        td #{Math.round(report.sender_score)}
+        td #{report.volume}
+        td #{report.blacklist_impact}
+        td #{report.complaint_rate_impact}
+        td #{report.unknown_rate_impact}
+        td #{report.rejected_rate_impact}
+        td #{report.filtered_rate_impact}
+        td #{report.infrastructure_impact}

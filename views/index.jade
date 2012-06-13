@@ -1,2 +1,10 @@
 h1= title
-p Welcome to #{title}
+
+#scores
+  script(type='text/javascript')
+    var SenderlyData = !{JSON.stringify(domainData)};
+
+  ul#companies
+    for val, domain in domainData.domains
+      li
+        a(href='/domain/#{domain}') #{domain}
