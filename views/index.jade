@@ -2,7 +2,9 @@ h1= title
 
 #scores
   script(type='text/javascript')
-    var SenderlyData = !{JSON.stringify(domainData)};
+    var scoredata = !{JSON.stringify(domainData)};
+
+  #chartit(style='width: 800px;250px;')
 
   table.table#companies
     thead

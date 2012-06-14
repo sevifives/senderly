@@ -12,7 +12,7 @@ table
         tr
           td #{key}
           td
-            if (key !== 'related_domains')
+            if key !== 'related_domains'
               #{val}
             else
               for related in val
