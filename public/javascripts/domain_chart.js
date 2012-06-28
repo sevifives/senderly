@@ -4,8 +4,8 @@ $(document).ready(function () {
   if (chart.length) {
     var toChart = [];
 
-    for (var domain in scoredata.domains) {
-      var scores = scoredata.domains[domain];
+    for (var domain in scoredata) {
+      var scores = scoredata[domain].reports;
       for (var i=0,l=scores.length;i<l;i++) {
         scores[i][0] = Date.parse(scores[i][0]);
       }
@@ -15,13 +15,11 @@ $(document).ready(function () {
       });
     }
 
-    console.log(toChart);
-
     var chiggityChart = new Highcharts.Chart({
       chart: {
         renderTo: 'chartit',
         type: 'line',
-        zoom: 'x,y',
+        zoomType: 'x,y',
         spacingRight: 20
       },
       title: {
@@ -39,6 +37,7 @@ $(document).ready(function () {
       },
       xAxis: {
         type: 'datetime',
+        // maxZoom: 14 * 24 * 3600000, // fourteen days
         dateTimeLabelFormats: {
           day: '%b %e',
           month: '%e. %b',

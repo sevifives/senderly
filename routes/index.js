@@ -43,7 +43,7 @@ exports.index = function(req, res){
         day: today,
         reports: rawCompanies
       };
-      res.render('index', {title: 'Senderly - Aggregation made simply', domainData: rawCompanies});
+      res.render('index', {title: 'Senderly - Aggregation made simply', domainData: rawCompanies, scripts: ['domain_chart.js']});
     });
   });
 };
