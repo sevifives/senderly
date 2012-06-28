@@ -1,7 +1,7 @@
 h1= title
 
 script(type="text/javascript")
-  var reports = !{JSON.stringify(ipReports)};
+  var reports = !{JSON.stringify(dataReports)};
 
 table
   thead
@@ -16,7 +16,7 @@ table
       td Filtered_rate_impact
       td Infrastructure_impact
   tbody
-    for report in ipReports
+    for report in dataReports
       tr
         td
           a(href='/ip/#{title}/#{new Date(report.processDate).toJSON()}') #{new Date(report.processDate).toLocaleDateString()}

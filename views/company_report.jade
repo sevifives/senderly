@@ -1,0 +1,13 @@
+h1= title
+
+
+h2 IPs
+table
+  thead
+    tr
+      td IP
+  tbody
+    for ip in ips
+      tr
+        td
+          a(href='/ip/#{ip}') #{ip}

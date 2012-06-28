@@ -5,6 +5,6 @@ h1= title
     var SenderlyData = !{JSON.stringify(domainData)};
 
   ul#companies
-    for val, domain in domainData.domains
+    for val, company in domainData
       li
-        a(href='/domain/#{domain}') #{domain}
+        a(href='/company/#{val.id}') #{company}
