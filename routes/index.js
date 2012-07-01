@@ -14,7 +14,7 @@ exports.index = function(req, res){
     of scoring so if it's a little behind, that's fine.
   */
   if (cache && cache.day === today) {
-    res.render('index', {title: 'Senderly - Aggregation made simply', domainData: cache.reports});
+    res.render('index', {title: 'Senderly - Aggregation made simply', domainData: cache.reports, scripts: ['domain_chart.js']});
     return;
   }
 
