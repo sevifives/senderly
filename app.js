@@ -3,6 +3,19 @@
  * Module dependencies.
  */
 
+
+String.prototype.urlSafeEncode = function () {
+  return this.replace(/\+/g,'-').replace(/\//g,'_').replace(/\=/g,'*');
+};
+
+String.prototype.urlSafeDecode = function () {
+  return this.replace(/\-/g,'+').replace(/\_/g,'/').replace(/\*/g,'=');
+};
+
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
 var express = require('express'),
     routes = require('./routes'),
     apiRoutes = require('./routes/api'),
@@ -46,7 +59,7 @@ app.get('/', routes.index);
 app.get('/scores/:start?/:end?',routes.getScores);
 app.get('/domain/:domain/:date?', routes.domainInfo);
 app.get('/company/:companyId/:date?', routes.companyInfo);
-app.get('/ip/:ip/:date?', routes.ipInfo);
+app.get('/ip/:ip/:date?/:companyId?', routes.ipInfo);
 
 app.get('/api/:version/ips/:property?', apiRoutes.api.getIps);
 app.get('/api/:version/domains/:property?', apiRoutes.api.getDomains);

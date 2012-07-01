@@ -4,7 +4,12 @@ h1= title
   script(type='text/javascript')
     var SenderlyData = !{JSON.stringify(domainData)};
 
-  ul#companies
+  table.table#companies
+    thead
+      tr
+        td Company Name
+    tbody
     for val, company in domainData
-      li
-        a(href='/company/#{val.id}') #{company}
+      tr
+        td
+          a(href='/company/#{val.id}') #{company}

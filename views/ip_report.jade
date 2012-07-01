@@ -1,13 +1,24 @@
-h1= title
+- var invalidKeys = ['domains','ip_auth','ss_trend', 'volume_trend','oib_data','is_auth','startProcess','finishProcess'];
+script(type='text/javascript')
+  var ssTrend = !{data.ss_trend},
+    volumeTrend = !{data.volume_trend};
 
-table
+h1
+  = title
+  a(class='view-link',href="https://senderscore.org/lookup.php?lookup=#{title}")= 'View on senderscore'
+
+table.table
   thead
     tr
       td Metric
       td Value
   tbody
     for val, key in data
-      if (key !== 'domains' || key !== 'ip_auth' || key !== ss_trend)
+      if (invalidKeys.indexOf(key) < 0)
         tr
-          td #{key}
-          td #{val}
+          if (key === 'companyId')
+            td= 'Company'
+            td= new Buffer(val,'base64').toString('ascii')
+          else
+            td #{key}
+            td #{val}

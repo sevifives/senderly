@@ -1,0 +1,16 @@
+@import 'base';
+
+#content {
+	margin-top: 40px;
+}
+
+.ip-list {
+  height: 400px;
+  overflow: auto;
+}
+
+.view-link {
+  font-size: .5em;
+  margin-left: 5px;
+  float: right;
+}

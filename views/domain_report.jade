@@ -1,3 +1,4 @@
+- var invalidKeys = ['ips','startProcess','finishProcess'];
 h1= title
 
 table
@@ -7,7 +8,7 @@ table
       td Value
   tbody
     for val, key in data
-      if (key !== 'ips')
+      if (invalidKeys.indexOf(key)<0)
         tr
           td #{key}
           td
@@ -18,7 +19,7 @@ table
                 a(href='/domain/#{related}') #{related}
 
 h2 Ips
-table
+table.table
   thead
     tr
       td IP
@@ -27,8 +28,8 @@ table
       td RDNS
       td Base Domain
   tbody
-    for ip in data.ips
-      tr
+    each ip, i in data.ips
+      tr(class='#{i%2?"odd":"even"}')
         td
           a(href='/ip/#{ip.ip}') #{ip.ip}
         td #{ip.sender_score}

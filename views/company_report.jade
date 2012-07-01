@@ -1,13 +1,11 @@
 h1= title
 
-
-h2 IPs
-table
-  thead
-    tr
-      td IP
-  tbody
-    for ip in ips
-      tr
-        td
-          a(href='/ip/#{ip}') #{ip}
+h3
+  #{ips.length} valid IPs
+.ip-list
+  table.table
+    tbody
+      each ip, i in ips.sort()
+        tr(class='#{i%2?"odd":"even"}')
+          td
+            a(href='/ip/#{ip}') #{ip}

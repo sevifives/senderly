@@ -1,0 +1,6 @@
+Version 0.2 - 2012-7-1
+- Added twitter bootstrap
+- Formatted asset templates for cleaner output
+- Added better logging
+- Started some documentation
+- Add changelog
